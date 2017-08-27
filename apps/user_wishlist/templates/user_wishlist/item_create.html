@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>item_create</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'user_wishlist/style.css' %}" media="screen" title="no title"  charset="utf-8">
+	<style>
+		tr{
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	{% for message in messages %}
+		<p>{{ message }}</p>
+	{% endfor %}
+	<h1>Create a New Wish List Item</h1>
+	<form action="/create" method="post">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>Item/Product:</td>
+				<td><input type="text" name="item_name"></td>
+			</tr>
+		</table>
+		<button>Create</button>
+	</form>
+  <p><a href="/dashboard">Home</a>  |  <a href="/logout">Logout</a></p>
+</body>
+</html>
